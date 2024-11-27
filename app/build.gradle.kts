@@ -72,12 +72,14 @@ dependencies {
 
     // Pinned to 20.7.0 as a workaround for issue https://github.com/firebase/quickstart-android/issues/1647
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     // FirebaseUI (for authentication)
     implementation("com.firebaseui:firebase-ui-auth:8.0.2")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation(libs.firebase.dataconnect)
     annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.8.7")
 
     // Third-party libraries
