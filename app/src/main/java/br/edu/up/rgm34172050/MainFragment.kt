@@ -54,6 +54,14 @@ class MainFragment : Fragment(),
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // Firestore
+        firestore = Firebase.firestore
+
+        // Get the 50 highest rated restaurants
+        query = firestore.collection("restaurants")
+            .orderBy("avgRating", Query.Direction.DESCENDING)
+            .limit(LIMIT.toLong())
+
         setHasOptionsMenu(true)
         binding = FragmentMainBinding.inflate(inflater, container, false);
         return binding.root;
