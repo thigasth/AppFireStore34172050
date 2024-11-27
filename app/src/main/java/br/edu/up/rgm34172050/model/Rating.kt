@@ -22,7 +22,6 @@ data class Rating(
         if (TextUtils.isEmpty(this.userName)) {
             this.userName = user.email
         }
-
         this.rating = rating
         this.text = text
     }
