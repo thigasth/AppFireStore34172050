@@ -24,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import br.edu.up.rgm34172050.databinding.FragmentMainBinding
 import br.edu.up.rgm34172050.adapter.RestaurantAdapter
+import br.edu.up.rgm34172050.util.RestaurantUtil
 import com.google.firebase.example.fireeats.viewmodel.MainActivityViewModel
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -206,9 +207,16 @@ class MainFragment : Fragment(),
     }
 
     private fun onAddItemsClicked() {
-        // TODO(developer): Add random restaurants
-        showTodoToast()
+        val restaurantsRef = firestore.collection("restaurants")
+        for (i in 0..9) {
+            // Create random restaurant / ratings
+            val randomRestaurant = RestaurantUtil.getRandom(requireContext())
+
+            // Add restaurant
+            restaurantsRef.add(randomRestaurant)
+        }
     }
+
 
     private fun showSignInErrorDialog(@StringRes message: Int) {
         val dialog = AlertDialog.Builder(requireContext())
